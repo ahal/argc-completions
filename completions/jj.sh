@@ -15,19 +15,19 @@
 
 # {{ jj abandon
 # @cmd Abandon a revision
-# @flag -s --summary              Do not print every abandoned commit on a separate line
-# @flag --restore-descendants     Do not modify the content of the children of the abandoned commits
-# @flag -h --help                 Print help (see a summary with '-h')
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @flag -s --summary                     Do not print every abandoned commit on a separate line
+# @flag --restore-descendants            Do not modify the content of the children of the abandoned commits
+# @flag -h --help                        Print help (see a summary with '-h')
+# @option -R --repository                Path to repository to operate on
+# @flag --ignore-working-copy            Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable               Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                          Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revisions*                 The revision(s) to abandon
+# @flag --quiet                          Silence non-primary command output
+# @flag --no-pager                       Disable the pager
+# @option --config-toml <TOML>           Additional configuration options (can be repeated)
+# @arg revisions*[`_choice_revision`]    The revision(s) to abandon
 abandon() {
     :;
 }
@@ -385,22 +385,22 @@ config::set() {
 
 # {{ jj describe
 # @cmd Update the change description or other metadata [aliases: desc]
-# @option -m --message            The change description to use (don't open editor)
-# @flag --stdin                   Read the change description from stdin
-# @flag --no-edit                 Don't open an editor
-# @flag --reset-author            Reset the author to the configured user
-# @option --author                Set author to the provided string
-# @flag -h --help                 Print help (see a summary with '-h')
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @option -m --message                   The change description to use (don't open editor)
+# @flag --stdin                          Read the change description from stdin
+# @flag --no-edit                        Don't open an editor
+# @flag --reset-author                   Reset the author to the configured user
+# @option --author                       Set author to the provided string
+# @flag -h --help                        Print help (see a summary with '-h')
+# @option -R --repository                Path to repository to operate on
+# @flag --ignore-working-copy            Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable               Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                          Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revisions*                 The revision(s) whose description to edit
+# @flag --quiet                          Silence non-primary command output
+# @flag --no-pager                       Disable the pager
+# @option --config-toml <TOML>           Additional configuration options (can be repeated)
+# @arg revisions*[`_choice_revision`]    The revision(s) whose description to edit
 describe() {
     :;
 }
@@ -459,17 +459,17 @@ diffedit() {
 
 # {{ jj duplicate
 # @cmd Create a new change with the same content as an existing one
-# @flag -h --help                 Print help (see a summary with '-h')
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @flag -h --help                        Print help (see a summary with '-h')
+# @option -R --repository                Path to repository to operate on
+# @flag --ignore-working-copy            Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable               Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                          Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revisions*                 The revision(s) to duplicate
+# @flag --quiet                          Silence non-primary command output
+# @flag --no-pager                       Disable the pager
+# @option --config-toml <TOML>           Additional configuration options (can be repeated)
+# @arg revisions*[`_choice_revision`]    The revision(s) to duplicate
 duplicate() {
     :;
 }
@@ -477,17 +477,17 @@ duplicate() {
 
 # {{ jj edit
 # @cmd Sets the specified revision as the working-copy revision
-# @flag -h --help                 Print help (see a summary with '-h')
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @flag -h --help                       Print help (see a summary with '-h')
+# @option -R --repository               Path to repository to operate on
+# @flag --ignore-working-copy           Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable              Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                         Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revision!                  The commit to edit
+# @flag --quiet                         Silence non-primary command output
+# @flag --no-pager                      Disable the pager
+# @option --config-toml <TOML>          Additional configuration options (can be repeated)
+# @arg revision![`_choice_revision`]    The commit to edit
 edit() {
     :;
 }
@@ -996,7 +996,7 @@ log() {
 # @flag --quiet                                 Silence non-primary command output
 # @flag --no-pager                              Disable the pager
 # @option --config-toml <TOML>                  Additional configuration options (can be repeated)
-# @arg revisions*                               Parent(s) of the new change
+# @arg revisions*[`_choice_revision`]           Parent(s) of the new change
 new() {
     :;
 }
@@ -1186,17 +1186,17 @@ operation::undo() {
 
 # {{ jj parallelize
 # @cmd Parallelize revisions by making them siblings
-# @flag -h --help                 Print help (see a summary with '-h')
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @flag -h --help                        Print help (see a summary with '-h')
+# @option -R --repository                Path to repository to operate on
+# @flag --ignore-working-copy            Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable               Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                          Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revisions*                 Revisions to parallelize
+# @flag --quiet                          Silence non-primary command output
+# @flag --no-pager                       Disable the pager
+# @option --config-toml <TOML>           Additional configuration options (can be repeated)
+# @arg revisions*[`_choice_revision`]    Revisions to parallelize
 parallelize() {
     :;
 }
@@ -1316,26 +1316,26 @@ root() {
 
 # {{ jj show
 # @cmd Show commit description and changes in a revision
-# @option -T --template           Render a revision using the given template
-# @flag -h --help                 Print help (see a summary with '-h')
-# @flag -s --summary              For each path, show only whether it was modified, added, or deleted
-# @flag --stat                    Show a histogram of the changes
-# @flag --types                   For each path, show only its type before and after
-# @flag --name-only               For each path, show only its path
-# @flag --git                     Show a Git-format diff
-# @flag --color-words             Show a word-level diff with changes indicated only by color
-# @option --tool                  Generate diff by external command
-# @option --context               Number of lines of context to show
-# @option -R --repository         Path to repository to operate on
-# @flag --ignore-working-copy     Don't snapshot the working copy, and don't update it
-# @flag --ignore-immutable        Allow rewriting immutable commits
+# @option -T --template                Render a revision using the given template
+# @flag -h --help                      Print help (see a summary with '-h')
+# @flag -s --summary                   For each path, show only whether it was modified, added, or deleted
+# @flag --stat                         Show a histogram of the changes
+# @flag --types                        For each path, show only its type before and after
+# @flag --name-only                    For each path, show only its path
+# @flag --git                          Show a Git-format diff
+# @flag --color-words                  Show a word-level diff with changes indicated only by color
+# @option --tool                       Generate diff by external command
+# @option --context                    Number of lines of context to show
+# @option -R --repository              Path to repository to operate on
+# @flag --ignore-working-copy          Don't snapshot the working copy, and don't update it
+# @flag --ignore-immutable             Allow rewriting immutable commits
 # @option --at-operation[`_choice_operation`] <AT_OPERATION>  Operation to load the repo at
-# @flag --debug                   Enable debug logging
+# @flag --debug                        Enable debug logging
 # @option --color[always|never|debug|auto] <WHEN>  When to colorize output
-# @flag --quiet                   Silence non-primary command output
-# @flag --no-pager                Disable the pager
-# @option --config-toml <TOML>    Additional configuration options (can be repeated)
-# @arg revision                   Show changes in this revision, compared to its parent(s)
+# @flag --quiet                        Silence non-primary command output
+# @flag --no-pager                     Disable the pager
+# @option --config-toml <TOML>         Additional configuration options (can be repeated)
+# @arg revision[`_choice_revision`]    Show changes in this revision, compared to its parent(s)
 show() {
     :;
 }
@@ -1801,6 +1801,14 @@ _choice_bookmark_remote() {
         }
     }
     '
+}
+
+_choice_head() {
+    jj log --no-graph -r "visible_heads()" -T 'change_id.short() ++ "\t" ++ author ++ " " ++ description'
+}
+
+_choice_revision() {
+    _argc_util_parallel _choice_bookmark ::: _choice_head
 }
 
 _choice_path() {

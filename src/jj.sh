@@ -7,6 +7,8 @@ _patch_table() {
             'paths;[`_choice_path`]' \
             'workspaces;[`_choice_workspace`]' \
             'operation;[`_choice_operation`]' \
+            'revision;[`_choice_revision`]' \
+            'revisions;[`_choice_revision`]' \
     )"
     if [[ "$*" == "jj bookmark"* ]]; then
         echo "$table" | \
@@ -54,6 +56,14 @@ _choice_bookmark_remote() {
         }
     }
     '
+}
+
+_choice_head() {
+    jj log --no-graph -r "visible_heads()" -T 'change_id.short() ++ "\t" ++ author ++ " " ++ description'
+}
+
+_choice_revision() {
+    _argc_util_parallel _choice_bookmark ::: _choice_head
 }
 
 _choice_path() {
